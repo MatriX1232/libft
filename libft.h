@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:36:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/11 11:55:36 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:09:14 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putnbr_fd(int n, int fd);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
-int		ft_isascii(unsigned char c);
+int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_strlen(char *str);
 int		ft_toupper(int c);

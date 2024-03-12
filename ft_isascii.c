@@ -6,15 +6,15 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:14:06 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/05 20:18:18 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:12:48 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(unsigned char c)
+int	ft_isascii(int c)
 {
-	if (c <= 127)
+	if (c >= 0 && c <= 127)
 	{
 		return (1);
 	}
