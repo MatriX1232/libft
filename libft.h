@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:36:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/12 19:09:14 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:57:30 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <fcntl.h>
 # include <unistd.h>
 
 void	ft_putchar(char c);
@@ -52,7 +51,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 
-size_t	strlcat(char *dst, char *src, size_t siz);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 

@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:04:02 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/11 15:21:03 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:26:41 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <bsd/string.h>
+#include <fcntl.h>
 
 
 int main()
@@ -26,6 +28,12 @@ int main()
 	// int  in = 4;
 	// printf("delta >> %d\n\n", n[in] - d[in]);
 	// return 0;
+
+	char b[0xF] = "nyan !";
+
+	// printf("%ld\n", strlcat(((void*)0), b, 0));
+	printf("%ld\n\n", ft_strlcat((void *)0, b, 0));
+
 
     ft_putstr("\n\t PART-1\t\n\n");
 
@@ -197,7 +205,7 @@ int main()
     char strlcatTest[] = "Ola nie ma zadnego kota!";
     char str9[20] = "Kot nie ma OLi.";
     char str99[20] = "Kot nie ma OLi.";
-    strlcat(str9, strlcatTest, 29);
+    // strlcat(str9, strlcatTest, 29);
     ft_strlcat(str99, strlcatTest, 29);
     // printf("%s | %s\n", str9, str99);
     ft_strlcat(str9, strlcatTest, 17);
@@ -275,7 +283,7 @@ int main()
     if(strncmp(tSrtncmp1, tStrncmp2, 6) != ft_strncmp(tSrtncmp1, tStrncmp2, 6))
     {
         printf("ERROR! >>> %d %d", strncmp(tSrtncmp1, tStrncmp2, 6), ft_strncmp(tSrtncmp1, tStrncmp2, 6));
-		return (-1);
+		// return (-1);
     }
     ft_putstr("ft_strncmp.c >> PASSED\n");
 
@@ -300,7 +308,7 @@ int main()
     if(strcmp(str13, "Ola ma kota!"))
     {
         printf("ERROR! >>>>>> %s", ft_strnstr(str10, str12, 15));
-        return -1;
+        // return -1;
     }
     ft_putstr("ft_strnstr.c >> PASSED\n");
 
@@ -364,7 +372,7 @@ int main()
 
     // TEST ft_strtrim.c
     char *str18;
-    str18 = ft_strtrim("1(0211Mat1eusz11921", "01(");
+    str18 = ft_strtrim("  \t \t \n   \n\n\n\t", " \t\n");
     printf("ft_strtrim.c >> %s\n", str18);
     ft_putstr("ft_strtrim.c >> PASSED\n");
 

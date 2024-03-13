@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/05 21:22:13 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:31:02 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ char	*ft_strdup(const char *s)
 	const char	*ss;
 
 	ss = s;
-	d = (char *) malloc(sizeof(char) * ft_strlen((char *)ss));
+	d = (char *) malloc((sizeof(char) * ft_strlen((char *)ss)) + 1);
 	if (!d)
 		return (NULL);
+	if (*s == '\0')
+		*d = '\0';
 	i = 0;
 	while (*(ss + i))
 	{
 		*(d + i) = *(ss + i);
 		i++;
 	}
+	d[i] = '\0';
 	return (d);
 }

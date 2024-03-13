@@ -18,7 +18,6 @@ FILES = ft_putchar.c \
 		ft_memchr.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
-		strlcat.c \
 		ft_toupper.c \
 		ft_tolower.c \
 		ft_strchr.c \
@@ -42,21 +41,13 @@ FILES = ft_putchar.c \
 
 OBJS = ${FILES:.c=.o}
 
+.all: $(NAME)
 
-.o:
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
-
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
-# TEST delete before moulinette
-test:
-	$(CC) $(CFLAGS) libft.c $(NAME)
-	./a.out
-
-
-.all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -64,6 +55,16 @@ clean:
 fclean: clean
 	rm $(NAME)
 
-re: fclean all
+re: fclean
+	make
 
-.PHONY: all clean fclean re
+# TEST delete before moulinette
+test:
+	$(CC) $(CFLAGS) libft.c $(NAME)
+	./a.out
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
+.PHONY: all clean fclean re test so
