@@ -1,4 +1,4 @@
-CC = clang
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
@@ -43,7 +43,7 @@ FILES = ft_putchar.c \
 
 OBJS = ${FILES:.c=.o}
 
-.all: $(NAME)
+all: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
@@ -55,20 +55,9 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME)
-	rm libft.so
-	rm a.out
+	rm -f $(NAME)
 
-re: fclean
-	@make
+re: fclean all
 
-# TEST delete before moulinette
-test:
-	$(CC) $(CFLAGS) libft.c $(NAME)
-	./a.out
+.PHONY: all clean fclean re
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
-.PHONY: all clean fclean re test so

@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:14:06 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/13 14:44:22 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:27:32 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		j = 0;
 		while (big[i + j] == little[j] && big[i + j] && j + i < len)
 		{
-			if (little[j + 1] == '\0')
-			{
-				return ((char *)(big + i + j - 1));
-			}
 			j++;
+			if (little[j] == '\0')
+			{
+				return ((char *)(big + i));
+			}
 		}
 		i++;
 	}

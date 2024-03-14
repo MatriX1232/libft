@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:14:06 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/13 12:44:33 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:18:30 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	while (*(dest + dlen) && dlen < size)
 		dlen++;
 	if (size == 0)
-		return (dlen);
+		return (ft_strlen((char *)src));
 	while (*(src + j) && dlen + j < size - 1)
 	{
 		*(dest + dlen + j) = *(src + j);
