@@ -6,11 +6,10 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:04:02 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/13 12:44:23 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:40:48 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr(char *str)

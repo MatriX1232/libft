@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 10:38:32 by msolinsk         ###   ########.fr       */
+/*   Created: 2024/03/14 12:25:44 by msolinsk          #+#    #+#             */
+/*   Updated: 2024/03/14 12:35:38 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Why to rewrite everything when we could use previous funcions :)	*/
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	new_size;
-	char	*s;
-	char	*sset;
+	unsigned int	i;
 
-	if (!s1 || !set)
-		return (NULL);
-	s = (char *)s1;
-	sset = (char *)set;
-	while (ft_strchr(sset, *s) && *s)
-		s++;
-	new_size = ft_strlen(s);
-	while (ft_strchr(sset, s[new_size]) && new_size)
-		new_size--;
-	return (ft_substr(s, 0, new_size + 1));
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, s + i);
+		i++;
+	}
 }

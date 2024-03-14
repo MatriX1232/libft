@@ -6,13 +6,13 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/11 11:44:36 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:38:19 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_all_size(char *s1, char *s2)
+static char	ft_all_size(char *s1, char *s2)
 {
 	return (ft_strlen(s1) + ft_strlen(s2));
 }

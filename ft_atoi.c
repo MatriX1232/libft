@@ -6,13 +6,13 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:14:05 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/07 13:19:07 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:36:34 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_at(const char *nptr, int i, int flag)
+static int	ft_at(const char *nptr, int i, int flag)
 {
 	int	n;
 

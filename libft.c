@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:04:02 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/13 16:26:41 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:11:17 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,21 +378,21 @@ int main()
 
 
     // TEST ft_split.c
-    char str19[] = "To jest text to splitowania";
-    char **str20;
-    str20 = ft_split(str19, ' ');
-    for(int i=0; i<5; i++)
+    char str19[] = "                  olol  a";
+    char **str20 = ft_split(str19, ' ');
+    while (str20[i] != NULL)
     {
         ft_putstr(str20[i]);
         ft_putstr(" | ");
+		i++;
     }
     ft_putstr("\nft_split.c >> PASSED\n");
 
 
     // TEST ft_itoa.c
     char  *str21;
-    str21 = ft_itoa(-2147483648);
-    printf("ft_itoa.c >> %ld | %s\n", -2147483648, str21);
+    str21 = ft_itoa(-0);
+    printf("ft_itoa.c >> %d | %s\n", -0, str21);
     ft_putstr("ft_itoa.c >> PASSED\n");
 
 

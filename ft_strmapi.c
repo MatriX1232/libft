@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 10:38:32 by msolinsk         ###   ########.fr       */
+/*   Created: 2024/03/14 12:11:56 by msolinsk          #+#    #+#             */
+/*   Updated: 2024/03/14 12:25:28 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Why to rewrite everything when we could use previous funcions :)	*/
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	new_size;
-	char	*s;
-	char	*sset;
+	size_t	i;
+	size_t	len;
+	char	*new;
 
-	if (!s1 || !set)
+	new = (char *) malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	if (!new)
 		return (NULL);
-	s = (char *)s1;
-	sset = (char *)set;
-	while (ft_strchr(sset, *s) && *s)
-		s++;
-	new_size = ft_strlen(s);
-	while (ft_strchr(sset, s[new_size]) && new_size)
-		new_size--;
-	return (ft_substr(s, 0, new_size + 1));
+	i = 0;
+	len = ft_strlen((char *)s);
+	while (i < len)
+	{
+		new[i] = (*f)((unsigned int)i, (char)s[i]);
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }

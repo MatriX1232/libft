@@ -6,13 +6,13 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/12 14:45:30 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:09:50 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	size;
 
@@ -27,7 +27,7 @@ int	ft_intlen(int n)
 	return (size);
 }
 
-char	*ft_itoa_internal(char *num, int n, int i, int minus)
+static char	*ft_itoa_internal(char *num, int n, int i, int minus)
 {
 	while (n > 0)
 	{
@@ -39,6 +39,27 @@ char	*ft_itoa_internal(char *num, int n, int i, int minus)
 	return (num);
 }
 
+static char	*ft_min_zero(void)
+{
+	char	*num;
+
+	num = (char *) malloc(sizeof(char) * 2);
+	num[0] = '0';
+	num[1] = '\0';
+	return (num);
+}
+
+static char	*ft_min_int(void)
+{
+	char	*num;
+
+	num = (char *) malloc(11);
+	if (!num)
+		return (NULL);
+	ft_strlcpy(num, "-2147483648", 12);
+	return (num);
+}
+
 char	*ft_itoa(int n)
 {
 	int		minus;
@@ -46,24 +67,21 @@ char	*ft_itoa(int n)
 	char	*num;
 
 	minus = 0;
+	if (n == 0)
+		return (ft_min_zero());
 	if (n == -2147483648)
-	{
-		num = (char *) malloc(11);
-		ft_strlcpy(num, "-2147483648", 12);
-		return (num);
-	}
+		return (ft_min_int());
 	if (n < 0)
 		minus = 1;
-	num = (char *) malloc(sizeof(char) * (ft_intlen(n) + minus));
+	num = (char *) malloc(sizeof(char) * (ft_intlen(n) + minus + 1));
+	if (!num)
+		return (NULL);
+	i = ft_intlen(n);
 	if (minus)
 	{
 		n *= (-1);
 		*num = '-';
 		i = ft_intlen(n) + 1;
-	}
-	else
-	{
-		i = ft_intlen(n);
 	}
 	*(num + i--) = '\0';
 	return (num = ft_itoa_internal(num, n, i, minus));
