@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:38:19 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:43:41 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	ss1 = (char *)s1;
 	ss2 = (char *)s2;
-	new = (char *) malloc(sizeof(char) * ft_all_size(ss1, ss2));
+	new = (char *) malloc(sizeof(char) * (ft_all_size(ss1, ss2) + 1));
 	if (!new)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:14:05 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:36:34 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:40:43 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_at(const char *nptr, int i, int flag)
 		n = n + (nptr[i] - '0');
 		i++;
 	}
-	if (flag == 1)
+	if (flag)
 		n *= (-1);
 	return (n);
 }
@@ -35,20 +35,13 @@ int	ft_atoi(const char *nptr)
 
 	i = 0;
 	flag = 0;
-	while (nptr[i] <= 32 && nptr[i] != '\0')
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (nptr[i] == '\e')
-			return (0);
+		if (nptr[i] == '-')
+			flag = 1;
 		i++;
 	}
-	if (nptr[i] == '-')
-	{
-		flag = 1;
-		i++;
-	}
-	else if (nptr[i] == '+')
-		i++;
-	if (flag && nptr[i - 2] == '+')
-		return (0);
 	return (ft_at(nptr, i, flag));
 }

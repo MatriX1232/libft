@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:04:02 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:11:17 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:01:48 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ int main()
 	// printf("delta >> %d\n\n", n[in] - d[in]);
 	// return 0;
 
-	char b[0xF] = "nyan !";
+	// char b[0xF] = "nyan !";
 
 	// printf("%ld\n", strlcat(((void*)0), b, 0));
-	printf("%ld\n\n", ft_strlcat((void *)0, b, 0));
+	// printf("%ld\n\n", ft_strlcat((void *)0, b, 0));
 
+	printf("ft_itoa.c | %s\n\n", ft_itoa(-2147483648));
 
     ft_putstr("\n\t PART-1\t\n\n");
 

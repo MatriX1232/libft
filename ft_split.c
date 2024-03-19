@@ -6,11 +6,28 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:45:06 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:45:41 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_alloc_null(void *w)
+{
+	w = (void *) malloc(sizeof(NULL));
+	w = NULL;
+	return (w);
+}
+
+static void	ft_freeall(char **words, int wid)
+{
+	while (wid >= 0)
+	{
+		free(words[wid]);
+		wid--;
+	}
+	free(words);
+}
 
 static int	ft_word_count(char *s, char c)
 {
@@ -32,35 +49,28 @@ static int	ft_word_count(char *s, char c)
 	return (count);
 }
 
-static int	ft_get_word_size(char *s, char c)
+static char	*ft_fillword(char **words, int wid, char *s, char c)
 {
 	int	size;
-
-	size = 0;
-	while (*(s + size) && *(s + size) != c)
-		size++;
-	return (size);
-}
-
-static char	*ft_fillword(char *w, char *s, char c)
-{
 	int	i;
 
+	size = 0;
+	while (s[size] && s[size] != c)
+		size++;
 	i = 0;
-	while (*(s + i) && *(s + i) != c)
+	words[wid] = (char *) malloc(sizeof(char) * (size + 1));
+	if (!words[wid])
 	{
-		*(w + i) = *(s + i);
+		ft_freeall(words, wid);
+		return (NULL);
+	}
+	while (s[i] && s[i] != c)
+	{
+		words[wid][i] = s[i];
 		i++;
 	}
-	w[i] = '\0';
-	return (w);
-}
-
-static char	*ft_alloc_null(void *w)
-{
-	w = (void *) malloc(sizeof(NULL));
-	w = NULL;
-	return (w);
+	words[wid][i] = '\0';
+	return (words[wid]);
 }
 
 char	**ft_split(char const *s, char c)
@@ -82,8 +92,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (*(ss + i) == '\0')
 			break ;
-		words[wid] = (char *)malloc(sizeof(char) * ft_get_word_size(ss + i, c));
-		words[wid] = ft_fillword(words[wid], ss + i, c);
+		words[wid] = ft_fillword(words, wid, ss + i, c);
 		wid++;
 		while (*(ss + i) && *(ss + i) != c)
 			i++;

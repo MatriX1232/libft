@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:04:02 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:40:48 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:50:35 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putstr(char *str)
 {
 	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
 	while (str[i] != '\0')
 	{

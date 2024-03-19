@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:09:50 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:00:30 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char	*ft_min_int(void)
 {
 	char	*num;
 
-	num = (char *) malloc(11);
+	num = (char *) malloc(sizeof(char) * 12);
 	if (!num)
 		return (NULL);
 	ft_strlcpy(num, "-2147483648", 12);
