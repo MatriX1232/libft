@@ -23,4 +23,4 @@ The compiled library will be called "libft.a"
 ![Libft-war-machine 100% mark](https://github.com/MatriX1232/libft/blob/main/libft-war-machine.png)
 
 ## Grade
-This project has not been graded yet.
+![Final grade 100%](https://github.com/MatriX1232/libft/blob/main/FinalGrade.png)
