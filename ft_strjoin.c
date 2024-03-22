@@ -6,38 +6,35 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:57:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/19 14:43:41 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:08:41 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	ft_all_size(char *s1, char *s2)
-{
-	return (ft_strlen(s1) + ft_strlen(s2));
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int			i;
-	char		*new;
-	char		*ss1;
-	char		*ss2;
+	int		i;
+	int		j;
+	char	*new;
 
-	ss1 = (char *)s1;
-	ss2 = (char *)s2;
-	new = (char *) malloc(sizeof(char) * (ft_all_size(ss1, ss2) + 1));
+	if (!s1 || !s2)
+		return (NULL);
+	new = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!new)
 		return (NULL);
 	i = 0;
-	while (*ss1)
+	while (s1[i])
 	{
-		*(new + i++) = *ss1++;
+		new[i] = s1[i];
+		i++;
 	}
-	while (*ss2)
+	j = 0;
+	while (s2[j])
 	{
-		*(new + i++) = *ss2++;
+		new[i + j] = s2[j];
+		j++;
 	}
-	*(new + i) = '\0';
+	*(new + i + j) = '\0';
 	return (new);
 }

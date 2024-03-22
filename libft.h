@@ -6,7 +6,7 @@
 /*   By: msolinsk <msolinsk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:36:44 by msolinsk          #+#    #+#             */
-/*   Updated: 2024/03/14 13:28:09 by msolinsk         ###   ########.fr       */
+/*   Updated: 2024/03/22 11:30:44 by msolinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_strlen(char *str);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -53,6 +52,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
+size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 

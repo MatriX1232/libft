@@ -3,8 +3,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-FILES = ft_putchar.c \
-		ft_putstr.c \
+FILES = \
 		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -61,6 +60,3 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
